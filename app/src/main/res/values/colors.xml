@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <!--自定义color-->
+    <color name="transparence">#00000000</color> <!-- 透明-->
+    <color name="white">#FFFFFFFF</color> <!-- 白色-->
+    <color name="red">#f6333f</color> <!-- 红色-->
+    <color name="green">#39cb49</color> <!-- 绿色-->
+    <color name="blue">#4196ff</color><!--蓝色-->
+    <color name="yellow">#FAD35A</color><!--黄颜色-->
+    <color name="orange">#FF8726</color><!--橙色-->
+    <color name="window_bg_color">#f8f8f9</color><!-- 窗体背景灰色-->
+    <color name="divider_line_color">#ededed</color><!--分割线颜色-->
+    <color name="big_text_color">#31353B</color><!--主字体颜色-->
+    <color name="middle_text_color">#61656b</color><!--中间字体颜色-->
+
+
+</resources>
