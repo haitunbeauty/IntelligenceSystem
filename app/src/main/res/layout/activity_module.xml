@@ -8,10 +8,6 @@
     <include layout="@layout/common_title"></include>
 
 
-    <ImageSwitcher
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ImageSwitcher>
-
     <FrameLayout
         android:id="@+id/placeholder_fl"
         android:layout_width="match_parent"
