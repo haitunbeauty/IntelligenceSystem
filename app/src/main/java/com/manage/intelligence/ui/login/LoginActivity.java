@@ -42,14 +42,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-//        AppDatabase appDB = MyApplication.getInstance().getAppDB();
-//        List<User> allUser = appDB.userDao().getAllUser();
-//        if (allUser != null && allUser.size() > 0){
-//            Toast.makeText(this,allUser.get(0).getUserName()+"",Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
+        AppDatabase appDB = MyApplication.getInstance().getAppDB();
+        List<User> allUser = appDB.userDao().getAllUser();
+        if (allUser != null && allUser.size() > 0){
+            Toast.makeText(this,allUser.get(0).getUserName()+"",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);

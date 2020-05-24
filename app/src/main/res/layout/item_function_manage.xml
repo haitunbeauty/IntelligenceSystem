@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:descendantFocusability="blocksDescendants">
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider_line_color"/>
+    <TextView
+        android:id="@+id/item_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:textColor="@color/big_text_color"
+        android:text="功能"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider_line_color"/>
+
+    <com.manage.intelligence.views.FunctionManageGridView
+        android:id="@+id/item_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:scrollbars="none"
+        android:horizontalSpacing="0.0dp"
+        android:verticalSpacing="0.0dp"/>
+
+</LinearLayout>

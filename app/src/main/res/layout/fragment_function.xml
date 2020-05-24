@@ -3,15 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="10dp"
     android:orientation="vertical">
 
-    <include layout="@layout/common_title"></include>
-
-    <FrameLayout
-        android:id="@+id/placeholder_fl"
+    <ListView
+        android:id="@+id/function_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"></FrameLayout>
-
+        android:divider="@color/window_bg_color"
+        android:dividerHeight="10dp"></ListView>
 
 </LinearLayout>
