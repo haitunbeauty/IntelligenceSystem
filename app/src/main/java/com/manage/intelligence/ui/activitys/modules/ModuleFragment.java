@@ -9,8 +9,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.manage.intelligence.R;
+import com.manage.intelligence.adapters.CommonTitleAdapter;
+import com.manage.intelligence.bean.CommonTitleAdapterBean;
+import com.manage.intelligence.utils.ToastUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,7 @@ public class ModuleFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private List<CommonTitleAdapterBean> list = new ArrayList<>();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -67,7 +76,29 @@ public class ModuleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_module, container, false);
+        View view = inflater.inflate(R.layout.fragment_module, container, false);
+        GridView titleGv = view.findViewById(R.id.title_gv);
+        CommonTitleAdapterBean commonTitleAdapterBean = new CommonTitleAdapterBean();
+        CommonTitleAdapterBean commonTitleAdapterBean1 = new CommonTitleAdapterBean();
+        commonTitleAdapterBean.setTitle("上模");
+        commonTitleAdapterBean1.setTitle("下模");
+        commonTitleAdapterBean.setSelected(true);
+        commonTitleAdapterBean1.setSelected(false);
+        list.add(commonTitleAdapterBean);
+        list.add(commonTitleAdapterBean1);
+        CommonTitleAdapter commonTitleAdapter = new CommonTitleAdapter(getActivity());
+        commonTitleAdapter.setData(list);
+        titleGv.setAdapter(commonTitleAdapter);
+        titleGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CommonTitleAdapterBean adapterBean = (CommonTitleAdapterBean) parent.getItemAtPosition(position);
+                ToastUtil.show(getActivity(),adapterBean.getTitle());
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

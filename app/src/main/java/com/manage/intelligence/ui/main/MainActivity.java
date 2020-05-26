@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         LinearLayout userLl = findViewById(R.id.user_ll);
         ImageView userIv = findViewById(R.id.user_iv);
+        TextView titleTv = findViewById(R.id.title_tv);
+        ImageView backIv = findViewById(R.id.back_iv);
         userLl.setVisibility(View.VISIBLE);
         userIv.setVisibility(View.VISIBLE);
-
-        ImageView backIv = findViewById(R.id.back_iv);
-
         backIv.setOnClickListener(this);
         userIv.setOnClickListener(this);
+        titleTv.setText("主页");
 
         initFunctionView();
     }

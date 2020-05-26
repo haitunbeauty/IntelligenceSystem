@@ -4,6 +4,7 @@ import com.manage.intelligence.base.MyApplication;
 import com.manage.intelligence.data.db.AppDatabase;
 import com.manage.intelligence.data.model.LoggedInUser;
 import com.manage.intelligence.data.model.User;
+import com.manage.intelligence.utils.SharedPrefsUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,11 +26,16 @@ public class LoginDataSource {
             User user = new User();
             user.setId(1);
             user.setUserName("FakeName1");
+
             AppDatabase appDB = MyApplication.getInstance().getAppDB();
             List<User> allUser = appDB.userDao().getAllUser();
-            if (allUser == null || allUser.size() < 1){//不包含  才存
+            boolean isRememberPassword = SharedPrefsUtil.getBoolean(MyApplication.getInstance(), "remember_password", "remember_password");
+            if ((allUser == null || allUser.size() < 1) && isRememberPassword){//不包含  才存
                 appDB.userDao().insertOneUser(user);
+            }else {
+                appDB.userDao().deleteAll();
             }
+
 
             return new Result.Success<>(fakeUser);
         } catch (Exception e) {

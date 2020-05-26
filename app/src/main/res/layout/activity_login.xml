@@ -86,15 +86,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <CheckBox
+            android:id="@+id/remember_password_cb"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_login_psw_left_icon"></ImageView>
+            android:layout_height="wrap_content"></CheckBox>
 
         <TextView
             android:layout_width="wrap_content"

@@ -19,6 +19,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ import com.manage.intelligence.data.model.User;
 import com.manage.intelligence.ui.login.LoginViewModel;
 import com.manage.intelligence.ui.login.LoginViewModelFactory;
 import com.manage.intelligence.ui.main.MainActivity;
+import com.manage.intelligence.utils.SharedPrefsUtil;
 import com.manage.intelligence.utils.ToastUtil;
 
 import java.util.List;
@@ -45,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         AppDatabase appDB = MyApplication.getInstance().getAppDB();
         List<User> allUser = appDB.userDao().getAllUser();
         if (allUser != null && allUser.size() > 0){
-            Toast.makeText(this,allUser.get(0).getUserName()+"",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
@@ -58,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
+        final CheckBox rememberCheckBox = findViewById(R.id.remember_password_cb);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
@@ -124,6 +126,12 @@ public class LoginActivity extends AppCompatActivity {
                     LiveData<LoginFormState> loginFormState = loginViewModel.getLoginFormState();
                     LoginFormState value = loginFormState.getValue();
                     if (value.isDataValid()){
+                        if (rememberCheckBox.isChecked()){//是否记住密码
+                            SharedPrefsUtil.set("remember_password","remember_password",true);
+                        }else {
+                            SharedPrefsUtil.set("remember_password","remember_password",false);
+                        }
+
                         loginViewModel.login(usernameEditText.getText().toString(),
                                 passwordEditText.getText().toString());
                     }else {
@@ -140,6 +148,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
+                if (rememberCheckBox.isChecked()){//是否记住密码
+                    SharedPrefsUtil.set("remember_password","remember_password",true);
+                }else {
+                    SharedPrefsUtil.set("remember_password","remember_password",false);
+                }
+
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
@@ -147,10 +161,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
 
+        // TODO : initiate successful logged in experience
+        Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
 
