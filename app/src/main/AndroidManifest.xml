@@ -20,6 +20,7 @@
             android:name=".ui.activitys.modules.ModuleActivity"
             android:label="@string/title_activity_module"
             android:theme="@style/MyTheme"></activity>
+        <activity android:name=".ui.activitys.modules.ModuleExitAndEntryActivity"></activity>
         <activity android:name=".ui.activitys.MeActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity

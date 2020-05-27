@@ -1,15 +1,8 @@
 package com.manage.intelligence.ui.activitys.modules;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -18,16 +11,22 @@ import com.manage.intelligence.R;
 
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 /**
 *作者:libao
 *添加时间:2020/5/24 13:38
 *修改人和时间: 2020/5/24 13:38
-*说明:模具页面
+*说明:模具出入库页面
 */
-public class ModuleActivity extends AppCompatActivity implements View.OnClickListener {
+public class ModuleExitAndEntryActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private String[] mTitles = {"上模", "下模"};
+    private String[] mTitles = {"入库", "出库"};
 
     private View mDecorView;
     private SegmentTabLayout tabLayout_1;
@@ -37,8 +36,8 @@ public class ModuleActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module);
-        mFragments.add(ModuleFragment.newInstance(mTitles[0]));
-        mFragments.add(ModuleFragmentTwo.newInstance(mTitles[1]));
+        mFragments.add(ModuleFragmentThree.newInstance(mTitles[0]));
+        mFragments.add(ModuleFragmentFore.newInstance(mTitles[1]));
         initView();
 
     }

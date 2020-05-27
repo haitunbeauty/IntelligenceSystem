@@ -1,30 +1,30 @@
 package com.manage.intelligence.ui.activitys.modules;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.manage.intelligence.R;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link ModuleFragment#newInstance} factory method to
+ * Use the {@link ModuleFragmentThree#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ModuleFragment extends Fragment {
+public class ModuleFragmentThree extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM = "param";
 
     private String mParam;
 
-    public ModuleFragment() {
+    public ModuleFragmentThree() {
         // Required empty public constructor
     }
 
@@ -36,8 +36,8 @@ public class ModuleFragment extends Fragment {
      * @return A new instance of fragment ModuleFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ModuleFragment newInstance( String param) {
-        ModuleFragment fragment = new ModuleFragment();
+    public static ModuleFragmentThree newInstance(String param) {
+        ModuleFragmentThree fragment = new ModuleFragmentThree();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM, param);
         fragment.setArguments(args);
@@ -57,9 +57,13 @@ public class ModuleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_module, container, false);
+        Button twoBtn = view.findViewById(R.id.two_btn);
+        twoBtn.setText("入库");
+
 
         return view;
     }
+
 
 
 }

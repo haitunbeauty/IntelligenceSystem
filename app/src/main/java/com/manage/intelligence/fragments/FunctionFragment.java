@@ -23,7 +23,7 @@ public class FunctionFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private FunctionFragment.OnListFragmentInteractionListener mListener;
+
 
 
     private ListView mListView;
@@ -64,10 +64,7 @@ public class FunctionFragment extends Fragment {
         mListView = view.findViewById(R.id.function_list_view);
         mAdapter = new FunctionManageAdapter(getActivity());
         mListView.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(mListener);
-
         requestFunctionData();
-
         return view;
     }
 
@@ -77,13 +74,14 @@ public class FunctionFragment extends Fragment {
     private void requestFunctionData() {
 
         mFunctionList.clear();
-        for (int i=1;i<15;i++){
+        for (int i=1;i<4;i++){
             ArrayList<FunctionManageBean.FunctionItem> functionItems = new ArrayList<>();
-            for (int j=1;j<6;j++){
+            for (int j=1;j<9;j++){
                 FunctionManageBean.FunctionItem functionItem = new FunctionManageBean.FunctionItem();
                 functionItem.setIcon("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590304293909&di=2580811645083afc60cb264878d8b7d3&imgtype=0&src=http%3A%2F%2Fs4.sinaimg.cn%2Fmw690%2F002vP0COzy6IWWI1T9N33%26690");
                 functionItem.setName("出库管理"+i*j);
                 functionItem.setNum(j*1);
+                functionItem.setId(j);
                 functionItems.add(functionItem);
             }
             FunctionManageBean functionManageBean = new FunctionManageBean();
@@ -98,36 +96,12 @@ public class FunctionFragment extends Fragment {
     }
 
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof FunctionFragment.OnListFragmentInteractionListener) {
-            mListener = (FunctionFragment.OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(FunctionManageBean.FunctionItem functionItem);
-    }
+
+
+
+
+
 
 }

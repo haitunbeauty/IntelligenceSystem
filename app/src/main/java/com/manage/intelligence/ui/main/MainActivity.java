@@ -15,9 +15,10 @@ import com.manage.intelligence.bean.FunctionManageBean;
 import com.manage.intelligence.fragments.FunctionFragment;
 import com.manage.intelligence.ui.activitys.MeActivity;
 import com.manage.intelligence.ui.activitys.modules.ModuleActivity;
+import com.manage.intelligence.ui.activitys.modules.ModuleExitAndEntryActivity;
 import com.manage.intelligence.utils.ToastUtil;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, FunctionFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final int ME_REQUEST = 1;
     private Intent mIntent;
@@ -69,15 +70,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
-    @Override
-    public void onListFragmentInteraction(FunctionManageBean.FunctionItem item) {
-        ToastUtil.show(this,item.getName());
-        mIntent = new Intent(this,ModuleActivity.class);
-        startActivity(mIntent);
-
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

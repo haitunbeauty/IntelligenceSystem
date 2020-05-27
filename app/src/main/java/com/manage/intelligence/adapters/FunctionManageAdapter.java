@@ -2,6 +2,7 @@ package com.manage.intelligence.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,11 @@ import com.bumptech.glide.Glide;
 import com.manage.intelligence.R;
 import com.manage.intelligence.bean.FunctionManageBean;
 import com.manage.intelligence.fragments.FunctionFragment;
+import com.manage.intelligence.ui.activitys.modules.ModuleActivity;
+import com.manage.intelligence.ui.activitys.modules.ModuleExitAndEntryActivity;
 import com.manage.intelligence.utils.ListViewUtils;
 import com.manage.intelligence.utils.PhoneUtil;
+import com.manage.intelligence.utils.ToastUtil;
 
 import java.util.List;
 
@@ -34,7 +38,6 @@ import androidx.fragment.app.FragmentActivity;
 public class FunctionManageAdapter extends BaseAdapter {
 
     private Context mContext;
-    private FunctionFragment.OnListFragmentInteractionListener mListener;
     private List<FunctionManageBean> mFunctionList;
 
 
@@ -45,10 +48,6 @@ public class FunctionManageAdapter extends BaseAdapter {
 
     public void setData(List<FunctionManageBean> functionList){
         this.mFunctionList = functionList;
-    }
-
-    public void setOnItemClickListener(FunctionFragment.OnListFragmentInteractionListener listener){
-        mListener = listener;
     }
 
 
@@ -83,9 +82,23 @@ public class FunctionManageAdapter extends BaseAdapter {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent mIntent = null;
                 FunctionManageBean.FunctionItem functionItem = mFunctionList.get((int)parent.getTag()).getFunctionItems().get(position);
                 if (functionItem != null){
-                    mListener.onListFragmentInteraction(functionItem);
+                    switch (functionItem.getId()){
+                        case 1:
+                            mIntent = new Intent(mContext, ModuleActivity.class);
+                            break;
+                        case 2:
+                            mIntent = new Intent(mContext, ModuleExitAndEntryActivity.class);
+                            break;
+                    }
+                    if (mIntent != null){
+                        mContext.startActivity(mIntent);
+                    }else {
+                        ToastUtil.show(mContext,"功能尚未开放");
+                    }
+
                 }
             }
         });
