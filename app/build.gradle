@@ -42,7 +42,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //顶部菜单选择器
-//    implementation  'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation project(path: ':TitleTabBar_Lib')
+
+    //多类型列表
+    implementation 'com.marshalchen.ultimaterecyclerview:library:0.9.0'
+
 
 }

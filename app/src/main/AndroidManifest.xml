@@ -17,10 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
         <activity
+            android:name=".base.BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/MyTheme"></activity>
+        <activity android:name=".ui.activitys.alarmcenter.AddAlarmActivity" />
+        <activity
             android:name=".ui.activitys.modules.ModuleActivity"
             android:label="@string/title_activity_module"
-            android:theme="@style/MyTheme"></activity>
-        <activity android:name=".ui.activitys.modules.ModuleExitAndEntryActivity"></activity>
+            android:theme="@style/MyTheme" />
+        <activity android:name=".ui.activitys.modules.ModuleExitAndEntryActivity" />
         <activity android:name=".ui.activitys.MeActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity

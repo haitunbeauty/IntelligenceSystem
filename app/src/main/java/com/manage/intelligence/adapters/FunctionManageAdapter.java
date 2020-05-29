@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.manage.intelligence.R;
+import com.manage.intelligence.base.BaseActivity;
 import com.manage.intelligence.bean.FunctionManageBean;
 import com.manage.intelligence.fragments.FunctionFragment;
+import com.manage.intelligence.ui.activitys.alarmcenter.AddAlarmActivity;
 import com.manage.intelligence.ui.activitys.modules.ModuleActivity;
 import com.manage.intelligence.ui.activitys.modules.ModuleExitAndEntryActivity;
 import com.manage.intelligence.utils.ListViewUtils;
@@ -91,6 +93,9 @@ public class FunctionManageAdapter extends BaseAdapter {
                             break;
                         case 2:
                             mIntent = new Intent(mContext, ModuleExitAndEntryActivity.class);
+                            break;
+                        case 3:
+                            mIntent = new Intent(mContext, AddAlarmActivity.class);
                             break;
                     }
                     if (mIntent != null){
