@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import com.manage.intelligence.R;
 import com.manage.intelligence.adapters.AlarmRejectListAdapter;
 import com.manage.intelligence.bean.AlarmRejectListBean;
+import com.manage.intelligence.bean.AlarmRequestListBean;
 
 import java.util.ArrayList;
 
@@ -28,7 +30,8 @@ public class AlarmRejectListFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
+    private AlarmRejectListAdapter alarmRejectListAdapter;
+    private ArrayList<AlarmRejectListBean> mAlarmRejectListBeans;
 
 
     public AlarmRejectListFragment() {
@@ -66,19 +69,43 @@ public class AlarmRejectListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_alarm_reject_list, container, false);
 
         ListView alarmRejectLv = view.findViewById(R.id.alarm_reject_lv);
-        AlarmRejectListAdapter alarmRejectListAdapter = new AlarmRejectListAdapter(getActivity());
-        ArrayList<AlarmRejectListBean> alarmRejectListBeans = new ArrayList<>();
+        alarmRejectListAdapter = new AlarmRejectListAdapter(getActivity());
+        mAlarmRejectListBeans = new ArrayList<>();
         for (int i=0;i<5;i++){
             AlarmRejectListBean alarmRejectListBean = new AlarmRejectListBean();
             alarmRejectListBean.setNumOne("第一"+i);
             alarmRejectListBean.setNumTwo("第二"+i);
             alarmRejectListBean.setNumThree("第三"+i);
-            alarmRejectListBeans.add(alarmRejectListBean);
+            mAlarmRejectListBeans.add(alarmRejectListBean);
         }
-        alarmRejectListAdapter.setData(alarmRejectListBeans);
+        alarmRejectListAdapter.setData(mAlarmRejectListBeans);
         alarmRejectLv.setAdapter(alarmRejectListAdapter);
 
         return view;
     }
 
+    //搜索
+    public void search(String content) {
+
+        if (!TextUtils.isEmpty(content)){
+            if (mAlarmRejectListBeans.size()>0){
+                ArrayList<AlarmRejectListBean> alarmRejectListBeans = new ArrayList<>();
+                for (int i=0;i<mAlarmRejectListBeans.size();i++){
+                    if (mAlarmRejectListBeans.get(i).getNumOne().contains(content)){
+                        alarmRejectListBeans.add(mAlarmRejectListBeans.get(i));
+                    }
+                }
+                if (alarmRejectListBeans.size()>0){
+                    alarmRejectListAdapter.setData(alarmRejectListBeans);
+                    alarmRejectListAdapter.notifyDataSetChanged();
+                }
+            }
+        }else {
+            if (mAlarmRejectListBeans.size()>0){
+                alarmRejectListAdapter.setData(mAlarmRejectListBeans);
+                alarmRejectListAdapter.notifyDataSetChanged();
+            }
+        }
+
+    }
 }

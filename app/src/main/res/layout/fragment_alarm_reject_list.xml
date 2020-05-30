@@ -9,6 +9,10 @@
     <ListView
         android:id="@+id/alarm_reject_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:background="@color/window_bg_color"
+        android:divider="@color/window_bg_color"
+        android:dividerHeight="@dimen/dp_10"></ListView>
 
 </FrameLayout>

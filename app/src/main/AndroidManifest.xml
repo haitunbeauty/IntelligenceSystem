@@ -16,7 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".ui.activitys.alarmcenter.AlarmListActivity"></activity>
+        <activity android:name=".ui.activitys.alarmcenter.VerifyInfoActivity"></activity>
+        <activity android:name=".ui.activitys.alarmcenter.AlarmCheckActivity" />
+        <activity android:name=".ui.activitys.alarmcenter.AlarmCheckListActivity" />
+        <activity
+            android:name=".ui.activitys.alarmcenter.AlarmListActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name=".base.BaseActivity"
             android:label="@string/title_activity_base"

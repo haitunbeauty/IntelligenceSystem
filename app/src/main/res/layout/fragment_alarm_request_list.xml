@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.activitys.alarmcenter.AlarmRequestListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/alarm_request_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:background="@color/window_bg_color"
+        android:divider="@color/window_bg_color"
+        android:dividerHeight="@dimen/dp_10"></ListView>
 
 </FrameLayout>

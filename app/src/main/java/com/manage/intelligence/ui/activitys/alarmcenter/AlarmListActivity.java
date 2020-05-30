@@ -1,6 +1,9 @@
 package com.manage.intelligence.ui.activitys.alarmcenter;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +17,7 @@ import com.manage.intelligence.ui.activitys.modules.ModuleExitAndEntryActivity;
 import com.manage.intelligence.ui.activitys.modules.ModuleFragmentFore;
 import com.manage.intelligence.ui.activitys.modules.ModuleFragmentThree;
 import com.manage.intelligence.utils.ToastUtil;
+import com.manage.intelligence.views.CommonTextWatcher;
 
 import java.util.ArrayList;
 
@@ -33,8 +37,10 @@ public class AlarmListActivity extends BaseActivity implements View.OnClickListe
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private String[] mTitles = {"驳回列表", "我的请求"};
 
+    private EditText commonSearchEt;
     private View mDecorView;
     private SegmentTabLayout tabLayout_1;
+    private int mPosition;
 
 
     @Override
@@ -54,7 +60,7 @@ public class AlarmListActivity extends BaseActivity implements View.OnClickListe
         mFragments.add(AlarmRequestListFragment.newInstance(mTitles[1]));
 
         TextView commonSearchTv = findViewById(R.id.common_search_tv);
-        EditText commonSearchEt = findViewById(R.id.common_search_et);
+        commonSearchEt = findViewById(R.id.common_search_et);
         commonSearchEt.setHint("模具号/设备号");
         commonSearchTv.setVisibility(View.VISIBLE);
         commonSearchTv.setOnClickListener(this);
@@ -68,13 +74,23 @@ public class AlarmListActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void tl_3() {
+
+        commonSearchEt.addTextChangedListener(new CommonTextWatcher(){
+            @Override
+            public void afterTextChanged(Editable s) {
+                super.afterTextChanged(s);
+                search(mPosition);
+            }
+        });
+
         final ViewPager viewPager = ViewFindUtils.find(mDecorView, R.id.vp);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-
         tabLayout_1.setTabData(mTitles);
         tabLayout_1.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
+                mPosition = position;
+                commonSearchEt.setText("");
                 viewPager.setCurrentItem(position);
             }
 
@@ -89,6 +105,8 @@ public class AlarmListActivity extends BaseActivity implements View.OnClickListe
 
             @Override
             public void onPageSelected(int position) {
+                mPosition = position;
+                commonSearchEt.setText("");
                 tabLayout_1.setCurrentTab(position);
             }
 
@@ -126,12 +144,25 @@ public class AlarmListActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()){
-
             case R.id.common_search_tv:
-                ToastUtil.show(this,"搜索");
+                search(mPosition);
                 break;
-
         }
 
     }
+
+    public void search(int position){
+        switch (mPosition){
+            case 0:
+                AlarmRejectListFragment alarmRejectListFragment = (AlarmRejectListFragment) mFragments.get(mPosition);
+                alarmRejectListFragment.search(commonSearchEt.getText().toString());
+                break;
+
+            case 1:
+                AlarmRequestListFragment alarmRequestListFragment = (AlarmRequestListFragment) mFragments.get(mPosition);
+                alarmRequestListFragment.search(commonSearchEt.getText().toString());
+                break;
+        }
+    }
+
 }

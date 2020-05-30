@@ -14,6 +14,12 @@ import java.util.ArrayList;
 
 import androidx.fragment.app.FragmentActivity;
 
+/**
+*作者:libao
+*添加时间:2020/5/30 17:51
+*修改人和时间: 2020/5/30 17:51
+*说明: 报警驳回列表适配器
+*/
 public class AlarmRejectListAdapter extends BaseAdapter {
 
     private Context mContext;
