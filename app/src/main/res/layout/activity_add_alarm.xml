@@ -17,9 +17,9 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_5"
                 android:gravity="center"
-                android:background="@color/window_bg_color"
-                android:text="基本信息"
+                android:text="基本信息:"
                 android:textSize="@dimen/textSize14"
+                android:textStyle="bold"
                 android:textColor="@color/big_text_color"></TextView>
 
         <LinearLayout
@@ -29,27 +29,34 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="设备号:"
+                android:text="设备号"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
             <EditText
+                android:id="@+id/device_number_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/dp_10"
                 android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
+                android:hint="扫码或输入"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></EditText>
             <ImageView
+                android:id="@+id/scan_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
                 android:src="@mipmap/ic_scan"
                 android:layout_gravity="center_vertical"></ImageView>
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                android:layout_gravity="center"></CheckBox>
         </LinearLayout>
 
         <LinearLayout
@@ -59,27 +66,22 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="模    号:"
+                android:text="模    号"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
             <EditText
+                android:id="@+id/mould_number_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginRight="@dimen/dp_10"
                 android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
+                android:hint="如无设备，则输入模具号"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></EditText>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_10"
-                android:src="@mipmap/ic_scan"
-                android:layout_gravity="center_vertical"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -89,37 +91,33 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="料    号:"
+                android:text="料    号"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
-            <EditText
+            <TextView
+                android:id="@+id/material_number_tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:layout_marginRight="@dimen/dp_10"
                 android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
+                android:hint="自动带出"
                 android:textSize="@dimen/textSize14"
-                android:textColor="@color/big_text_color"></EditText>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_10"
-                android:src="@mipmap/ic_scan"
-                android:layout_gravity="center_vertical"></ImageView>
+                android:textColor="@color/big_text_color"></TextView>
         </LinearLayout>
         <TextView
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
             android:padding="@dimen/dp_5"
             android:gravity="center"
-            android:background="@color/window_bg_color"
-            android:text="故障信息"
+            android:text="故障信息:"
             android:textSize="@dimen/textSize14"
+            android:textStyle="bold"
             android:textColor="@color/big_text_color"></TextView>
 
         <LinearLayout
@@ -132,18 +130,20 @@
                 android:layout_height="match_parent"
                 android:gravity="center|top"
                 android:paddingTop="@dimen/dp_5"
-                android:text="故障描述:"
+                android:text="故障描述"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
             <EditText
+                android:id="@+id/description_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="top"
                 android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingLeft="@dimen/dp_10"
                 android:minHeight="@dimen/dp_60"
                 android:layout_marginRight="@dimen/dp_10"
-                android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
                 android:hint="描述"
                 android:textSize="@dimen/textSize14"
@@ -156,21 +156,40 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="维保性质:"
+                android:text="维保性质"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
-            <EditText
+
+            <LinearLayout
+                android:id="@+id/maintain_ll"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:minHeight="@dimen/dp_60"
                 android:layout_marginRight="@dimen/dp_10"
-                android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
-                android:textSize="@dimen/textSize14"
-                android:textColor="@color/big_text_color"></EditText>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:hint="下拉选择"
+                    android:textSize="@dimen/textSize14"
+                    android:textColor="@color/big_text_color"></TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:src="@mipmap/ic_down_arr_solide"
+                    android:layout_gravity="center_vertical"></ImageView>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -180,42 +199,67 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="紧急程度:"
+                android:text="紧急程度"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
-            <EditText
+
+            <LinearLayout
+                android:id="@+id/urgency_ll"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:minHeight="@dimen/dp_60"
                 android:layout_marginRight="@dimen/dp_10"
-                android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
-                android:textSize="@dimen/textSize14"
-                android:textColor="@color/big_text_color"></EditText>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:hint="下拉选择"
+                    android:textSize="@dimen/textSize14"
+                    android:textColor="@color/big_text_color"></TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dp_20"
+                    android:paddingRight="@dimen/dp_20"
+                    android:paddingTop="@dimen/dp_5"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:src="@mipmap/ic_down_arr_solide"
+                    android:layout_gravity="center_vertical"></ImageView>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_40"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="@dimen/dp_80"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="备注:"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|top"
+                android:paddingTop="@dimen/dp_5"
+                android:text="备注"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></TextView>
             <EditText
+                android:id="@+id/remark_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="top"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:minHeight="@dimen/dp_60"
                 android:layout_marginRight="@dimen/dp_10"
                 android:paddingLeft="@dimen/dp_10"
                 android:background="@drawable/shape_solid_gray_bg"
-                android:hint="设备号"
+                android:hint="备注"
                 android:textSize="@dimen/textSize14"
                 android:textColor="@color/big_text_color"></EditText>
         </LinearLayout>
@@ -228,19 +272,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5"
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginBottom="@dimen/dp_20"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/check_person_ll"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
                 android:background="@drawable/shape_solid_gray_bg"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="@dimen/dp_80"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/dp_10"
                     android:gravity="center"
                     android:padding="@dimen/dp_5"
@@ -255,19 +301,20 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:paddingLeft="@dimen/dp_20"
                     android:paddingRight="@dimen/dp_20"
                     android:paddingTop="@dimen/dp_5"
                     android:paddingBottom="@dimen/dp_5"
-                    android:src="@mipmap/ic_scan"
+                    android:src="@mipmap/ic_down_arr_solide"
                     android:layout_gravity="center_vertical"></ImageView>
 
             </LinearLayout>
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/commit_tv"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
                 android:padding="@dimen/dp_5"
                 android:background="@drawable/shape_solid_blue_bg"
                 android:gravity="center"
