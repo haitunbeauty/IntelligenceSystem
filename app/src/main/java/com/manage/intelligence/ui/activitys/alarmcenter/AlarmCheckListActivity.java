@@ -14,6 +14,7 @@ import com.manage.intelligence.R;
 import com.manage.intelligence.adapters.AlarmCheckListAdapter;
 import com.manage.intelligence.base.BaseActivity;
 import com.manage.intelligence.bean.AlarmCheckListBean;
+import com.manage.intelligence.ui.activitys.maintaincenter.MainTainDealDetailActivity;
 import com.manage.intelligence.ui.activitys.maintaincenter.MainTainListDetailActivity;
 import com.manage.intelligence.utils.ToastUtil;
 import com.manage.intelligence.views.CommonTextWatcher;
@@ -33,6 +34,7 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
     private static final int CHECK_REQUEST_CODE = 1;
     private static final int VERIFY_REQUEST_CODE = 2;
     private static final int MAINTAIN_DETAIL_REQUEST_CODE = 3;
+    private static final int MAINTAIN_DEAL_DETAIL_REQUEST_CODE = 4;
     private EditText commonSearchEt;
 
     @Override
@@ -113,6 +115,10 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
                     mIntent = new Intent(this, MainTainListDetailActivity.class);
                     startActivityForResult(mIntent,MAINTAIN_DETAIL_REQUEST_CODE);
                     break;
+                case 3://待处理
+                    mIntent = new Intent(this, MainTainDealDetailActivity.class);
+                    startActivityForResult(mIntent,MAINTAIN_DEAL_DETAIL_REQUEST_CODE);
+                    break;
                     default:
                         mIntent = new Intent(this,VerifyInfoActivity.class);
                         startActivityForResult(mIntent,VERIFY_REQUEST_CODE);
@@ -132,6 +138,8 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
                 ToastUtil.show(this,"验证信息回来了");
             }else if (requestCode == MAINTAIN_DETAIL_REQUEST_CODE){
                 ToastUtil.show(this,"待接单详情回来了");
+            }else if (requestCode == MAINTAIN_DEAL_DETAIL_REQUEST_CODE){
+                ToastUtil.show(this,"待处理详情回来了");
             }
 
         }
