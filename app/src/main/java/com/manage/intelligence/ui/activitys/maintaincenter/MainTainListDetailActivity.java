@@ -43,6 +43,7 @@ public class MainTainListDetailActivity extends BaseActivity implements View.OnC
         Intent mIntent = null;
         switch (v.getId()){
             case R.id.dispatching_btn:
+                ToastUtil.show(this,"主管权限才会有派工哦...");
                 mIntent = new Intent(this,MainTainDispatchingActivity.class);
                 break;
 

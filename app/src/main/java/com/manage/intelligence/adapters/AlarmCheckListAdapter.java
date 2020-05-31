@@ -56,6 +56,9 @@ public class AlarmCheckListAdapter  extends BaseAdapter {
         }else if (status == 3){
             alarmStatusTv.setText("待处理");
             alarmStatusTv.setBackgroundResource(R.drawable.shape_solid_red_bg);
+        }else if (status == 4){
+            alarmStatusTv.setText("维修中");
+            alarmStatusTv.setBackgroundResource(R.drawable.shape_solid_green_bg);
         }else {
             alarmStatusTv.setText("已审核");
             alarmStatusTv.setBackgroundResource(R.drawable.shape_solid_blue_bg);

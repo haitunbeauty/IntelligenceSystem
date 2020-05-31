@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".ui.activitys.maintaincenter.MainTainDealDetailActivity"></activity>
+        <activity android:name=".ui.activitys.maintaincenter.ExperienceLibaryDetailActivity"></activity>
+        <activity android:name=".ui.activitys.maintaincenter.ExperienceLibaryActivity" />
+        <activity android:name=".ui.activitys.maintaincenter.MainTainingDetailActivity" />
+        <activity android:name=".ui.activitys.maintaincenter.MainTainDealDetailActivity" />
         <activity android:name=".ui.activitys.maintaincenter.MainTainDispatchingActivity" />
         <activity android:name=".ui.activitys.maintaincenter.MainTainListDetailActivity" />
         <activity android:name=".ui.activitys.alarmcenter.VerifyInfoActivity" />
