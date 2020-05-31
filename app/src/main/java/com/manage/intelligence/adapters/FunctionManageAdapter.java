@@ -95,7 +95,10 @@ public class FunctionManageAdapter extends BaseAdapter {
                         case 3:
                             mIntent = new Intent(mContext, AddAlarmActivity.class);
                             break;
-                        case 4:
+                        case 4://报警审核
+                            mIntent = new Intent(mContext, AlarmCheckListActivity.class);
+                            break;
+                        case 5://待接单
                             mIntent = new Intent(mContext, AlarmCheckListActivity.class);
                             break;
                     }

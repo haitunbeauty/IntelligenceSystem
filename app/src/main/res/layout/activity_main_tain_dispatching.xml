@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+            <include layout="@layout/common_search"></include>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/worker_select_lv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_10"
+            android:divider="@color/window_bg_color"
+            android:dividerHeight="@dimen/dp_10"></ListView>
+
+
+        <TextView
+            android:id="@+id/confirm_Tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:gravity="center"
+            android:background="@drawable/shape_solid_blue_bg"
+            android:text="确认"
+            android:textSize="@dimen/textSize14"
+            android:textColor="@color/white"></TextView>
+
+    </LinearLayout>
+
+</FrameLayout>

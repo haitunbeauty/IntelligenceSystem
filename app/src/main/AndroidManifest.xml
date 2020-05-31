@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".ui.activitys.alarmcenter.VerifyInfoActivity"></activity>
+        <activity android:name=".ui.activitys.maintaincenter.MainTainDispatchingActivity"></activity>
+        <activity android:name=".ui.activitys.maintaincenter.MainTainListDetailActivity" />
+        <activity android:name=".ui.activitys.alarmcenter.VerifyInfoActivity" />
         <activity android:name=".ui.activitys.alarmcenter.AlarmCheckActivity" />
         <activity android:name=".ui.activitys.alarmcenter.AlarmCheckListActivity" />
         <activity

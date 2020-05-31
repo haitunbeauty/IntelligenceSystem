@@ -47,8 +47,12 @@ public class AlarmCheckListAdapter  extends BaseAdapter {
         View view = LayoutInflater.from(mContext).inflate(R.layout.alarm_check_list_item, null);
 
         TextView alarmStatusTv = view.findViewById(R.id.alarm_status_tv);
-        if (mList.get(position).getStatus() == 1){
+        int status = mList.get(position).getStatus();
+        if (status == 1){
             alarmStatusTv.setText("待审核");
+        }else if (status == 2){
+            alarmStatusTv.setText("待接单");
+            alarmStatusTv.setBackgroundResource(R.drawable.shape_solid_yello_bg);
         }else {
             alarmStatusTv.setText("已审核");
             alarmStatusTv.setBackgroundResource(R.drawable.shape_solid_blue_bg);

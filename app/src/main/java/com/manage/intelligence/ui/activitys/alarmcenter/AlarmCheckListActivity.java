@@ -14,6 +14,7 @@ import com.manage.intelligence.R;
 import com.manage.intelligence.adapters.AlarmCheckListAdapter;
 import com.manage.intelligence.base.BaseActivity;
 import com.manage.intelligence.bean.AlarmCheckListBean;
+import com.manage.intelligence.ui.activitys.maintaincenter.MainTainListDetailActivity;
 import com.manage.intelligence.utils.ToastUtil;
 import com.manage.intelligence.views.CommonTextWatcher;
 
@@ -31,6 +32,7 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
 
     private static final int CHECK_REQUEST_CODE = 1;
     private static final int VERIFY_REQUEST_CODE = 2;
+    private static final int MAINTAIN_DETAIL_REQUEST_CODE = 3;
     private EditText commonSearchEt;
 
     @Override
@@ -96,16 +98,20 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
     /**
     * 审核页面
     * */
-    private Intent mIntent;
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent mIntent;
         AlarmCheckListBean alarmCheckListBean = (AlarmCheckListBean) parent.getItemAtPosition(position);
         if (alarmCheckListBean!=null){
             switch (alarmCheckListBean.getStatus()){
                 case 1://待审核
                     mIntent = new Intent(this,AlarmCheckActivity.class);
                     startActivityForResult(mIntent,CHECK_REQUEST_CODE);
+                    break;
+                case 2://待接单
+                    mIntent = new Intent(this, MainTainListDetailActivity.class);
+                    startActivityForResult(mIntent,MAINTAIN_DETAIL_REQUEST_CODE);
                     break;
                     default:
                         mIntent = new Intent(this,VerifyInfoActivity.class);
@@ -124,6 +130,8 @@ public class AlarmCheckListActivity extends BaseActivity implements View.OnClick
                 ToastUtil.show(this,"审核回来了");
             }else if (requestCode == VERIFY_REQUEST_CODE){
                 ToastUtil.show(this,"验证信息回来了");
+            }else if (requestCode == MAINTAIN_DETAIL_REQUEST_CODE){
+                ToastUtil.show(this,"待接单详情回来了");
             }
 
         }

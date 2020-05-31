@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/dp_50"
+    android:gravity="center_vertical"
+    android:padding="@dimen/dp_5"
+    android:background="@drawable/shape_solid_white_bg">
+
+    <TextView
+        android:id="@+id/work_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F100004(张三)"></TextView>
+
+    <TextView
+        android:id="@+id/maintain_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:text="当前维修数2"></TextView>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></View>
+
+    <CheckBox
+        android:id="@+id/is_select_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10"></CheckBox>
+
+</LinearLayout>
