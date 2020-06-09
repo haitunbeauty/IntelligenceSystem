@@ -1,6 +1,5 @@
 package com.manage.intelligence.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,7 +73,7 @@ public class FunctionFragment extends Fragment {
     private void requestFunctionData() {
 
         mFunctionList.clear();
-        for (int i=1;i<4;i++){
+        for (int i=1;i<10;i++){
             ArrayList<FunctionManageBean.FunctionItem> functionItems = new ArrayList<>();
             for (int j=1;j<9;j++){
                 FunctionManageBean.FunctionItem functionItem = new FunctionManageBean.FunctionItem();

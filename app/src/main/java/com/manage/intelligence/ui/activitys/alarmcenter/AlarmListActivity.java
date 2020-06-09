@@ -1,22 +1,15 @@
 package com.manage.intelligence.ui.activitys.alarmcenter;
 
-import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.flyco.tablayout.SegmentTabLayout;
-import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.flyco.tablayout.utils.ViewFindUtils;
+import com.ijovo.customtabbar_lib.SegmentTabLayout;
+import com.ijovo.customtabbar_lib.listener.OnTabSelectListener;
+import com.ijovo.customtabbar_lib.utils.ViewFindUtils;
 import com.manage.intelligence.R;
 import com.manage.intelligence.base.BaseActivity;
-import com.manage.intelligence.ui.activitys.modules.ModuleExitAndEntryActivity;
-import com.manage.intelligence.ui.activitys.modules.ModuleFragmentFore;
-import com.manage.intelligence.ui.activitys.modules.ModuleFragmentThree;
-import com.manage.intelligence.utils.ToastUtil;
 import com.manage.intelligence.views.CommonTextWatcher;
 
 import java.util.ArrayList;

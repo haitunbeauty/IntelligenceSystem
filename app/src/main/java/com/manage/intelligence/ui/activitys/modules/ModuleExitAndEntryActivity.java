@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.flyco.tablayout.SegmentTabLayout;
-import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.flyco.tablayout.utils.ViewFindUtils;
+import com.ijovo.customtabbar_lib.SegmentTabLayout;
+import com.ijovo.customtabbar_lib.listener.OnTabSelectListener;
+import com.ijovo.customtabbar_lib.utils.ViewFindUtils;
 import com.manage.intelligence.R;
 
 import java.util.ArrayList;
