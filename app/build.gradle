@@ -51,5 +51,11 @@ dependencies {
     //联动选择器
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
 
+    //网络框架
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    //动态权限管理 For developers using AndroidX in their applications
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
 
 }

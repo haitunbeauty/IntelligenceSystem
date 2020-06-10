@@ -1,5 +1,6 @@
 package com.manage.intelligence.ui.login;
 
+import android.Manifest;
 import android.app.Activity;
 
 import androidx.lifecycle.LiveData;
@@ -37,8 +38,11 @@ import com.manage.intelligence.utils.ToastUtil;
 
 import java.util.List;
 
+import pub.devrel.easypermissions.EasyPermissions;
+
 public class LoginActivity extends AppCompatActivity {
 
+    private static final int INTERNET = 1;
     private LoginViewModel loginViewModel;
 
     @Override
@@ -95,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+//                finish();
             }
         });
 
@@ -147,15 +151,27 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                if (rememberCheckBox.isChecked()){//是否记住密码
-                    SharedPrefsUtil.set("remember_password","remember_password",true);
-                }else {
-                    SharedPrefsUtil.set("remember_password","remember_password",false);
+
+                String[] perms = {Manifest.permission.INTERNET};
+                if (EasyPermissions.hasPermissions(LoginActivity.this, perms)) {
+                    // Already have permission, do the thing
+                    loadingProgressBar.setVisibility(View.VISIBLE);
+                    if (rememberCheckBox.isChecked()){//是否记住密码
+                        SharedPrefsUtil.set("remember_password","remember_password",true);
+                    }else {
+                        SharedPrefsUtil.set("remember_password","remember_password",false);
+                    }
+
+                    loginViewModel.login(usernameEditText.getText().toString(),
+                            passwordEditText.getText().toString());
+
+                } else {
+                    // Do not have permissions, request them now
+                    EasyPermissions.requestPermissions(LoginActivity.this, "获取网络权限",INTERNET, perms);
                 }
 
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+
+
             }
         });
     }

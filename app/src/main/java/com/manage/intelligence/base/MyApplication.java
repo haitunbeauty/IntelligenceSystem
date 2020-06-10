@@ -2,9 +2,13 @@ package com.manage.intelligence.base;
 
 import android.app.Application;
 
+import com.androidnetworking.AndroidNetworking;
 import com.manage.intelligence.data.db.AppDatabase;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
+
+import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application {
 
@@ -13,6 +17,9 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化网络框架
+        AndroidNetworking.initialize(getApplicationContext());
+
         mInstance = this;
         appDB = Room.databaseBuilder(this,AppDatabase.class,"user_info")
                 .addMigrations()
