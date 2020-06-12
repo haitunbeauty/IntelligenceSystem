@@ -28,6 +28,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation project(path: ':customtabbar_lib')
+    implementation 'org.jetbrains:annotations-java5:15.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -53,6 +54,19 @@ dependencies {
 
     //网络框架
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    //网络架构二
+    //必须使用
+    implementation 'com.lzy.net:okgo:3.0.4'
+
+    //以下三个选择添加，okrx和okrx2不能同时使用
+    //implementation 'com.lzy.net:okrx:1.0.2'
+    implementation 'com.lzy.net:okrx2:2.0.2'
+    implementation 'com.lzy.net:okserver:2.0.5'
+
+    //网络请求
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.alibaba:fastjson:1.2.56'
 
     //动态权限管理 For developers using AndroidX in their applications
     implementation 'pub.devrel:easypermissions:3.0.0'

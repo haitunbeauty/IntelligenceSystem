@@ -153,6 +153,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String[] perms = {Manifest.permission.INTERNET};
+//                EasyPermissions.requestPermissions(LoginActivity.this, "获取网络权限",INTERNET, perms);
+
                 if (EasyPermissions.hasPermissions(LoginActivity.this, perms)) {
                     // Already have permission, do the thing
                     loadingProgressBar.setVisibility(View.VISIBLE);

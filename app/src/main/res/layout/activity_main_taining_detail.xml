@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.flyco.tablayout.SegmentTabLayout
+    <com.ijovo.customtabbar_lib.SegmentTabLayout
         android:id="@+id/tl_1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
